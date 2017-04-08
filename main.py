@@ -1,14 +1,16 @@
 from random import *
 from randomizer import name_creator
+from person_class import *
 
 
 population = 10 #randrange(100, 1000)
 def pop_generator():
     for x in range(0, population):
         x = name_creator()
-        print(x)
+        x = person()
+        print(x.name)
 
-cont_name()
+pop_generator()
 #Barebones foundation for future project: Each generated name will
     #be assigned to a class as a variable and a list of attributes will
     #be randomly generated for it.
