@@ -1,7 +1,7 @@
-class person(randomized_name):
-    def __init__(self, name):
-        self.name = randomized_name
-    number_of_legs = 2
+class person:
+    def __init__(self, person_name):
+        self.person_name = person_name
+    number_of_legs = 2 #class-level attribute
 """
 To do: figure out exactly how to take
 in the value of x from pop_generator
