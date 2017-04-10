@@ -1,9 +1,5 @@
 from word_blocks import blocks
-"""
-class gen_randomizer:
-    #takes in some variables, decides what to do with them.
-    def creature(self):
-   """
+
 from random import *
 
 def name_creator(): #tests the blocks from word_blocks
