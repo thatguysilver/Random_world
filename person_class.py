@@ -2,17 +2,20 @@ from randomizer import *
 
 class creature:
     '''Everything that breathes is one of these.'''
-    def num_of_legs(self, num_of_legs):
-        self.num_of_legs = num_of_legs
-        num_of_legs = random.randint(1, 100)
-        if num_of_legs <=35:
-            return "2"
-        elif num_of_legs > 35 and x <= 70:
-            return "4"
-        elif num_of_legs > 70 and x <= 95:
-            return "8"
+    def num_of_legs(self):
+        num = randint(1, 100)
+        if num <=35:
+            num = 2
+            return num
+        elif num > 35 and num <= 70:
+            num = 4
+            return num
+        elif num > 70 and num <= 95:
+            num = 8
+            return num
         else:
-            return "6"
+            num = 6
+            return num
 
 
 class person(creature):
