@@ -1,13 +1,15 @@
 from random import *
+from sys import argv #necessary for writing to file
 from randomizer import name_creator
 from creatures_class import creature, person
+import os
 
 class continent:
     '''data structure for generated continent'''
     name = name_creator()
     land_area = str(randrange(1000, 10000000))
     population_density = randrange(10, 20000)
-    population = population_density*int(land_area)
+    population = population_density*int(land_area) #determines a realistic pop
 
 
 
@@ -29,14 +31,26 @@ def pop_generator():
         print(name.person_name) #prints the name.
         print(name.number_of_legs) #prints a class-level variable for SnGs
 
-pop_generator()
-#creature_pop_generator()
-x = continent()
-name = continent()
-y = continent()
-print("""This is the land of {0}. It is {1} square kilometers.
-      {2} people live in {0}."""
-      .format(name.name, x.land_area, y.population))
+def executor():
+    '''actually writes the program. Document write abilities
+    forthcoming'''
+    #creature_pop_generator()
+    contname = continent()
+    size = continent()
+    human_pop = continent()
+    print"""This is the land of {0}. It is {1} square kilometers.
+          {2} people live in {0}."""
+          .format(contname.name, size.land_area,
+          human_pop.population))
+    '''raw output; not in final product'''
+    world_directory = r'{}'.format(contname.name) #sets variable
+    if not os.path.exists(world_directory): #Ensures that path doesn't exist yet
+        os.makedirs(world_directory)
+        texttext = open('{}/testtext'.format(world_directory), 'w+')
+
+executor()
+
+
 
 #Barebones foundation for future project: Each generated name will
     #be assigned to a class as a variable and a list of attributes will
