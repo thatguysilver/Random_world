@@ -1,4 +1,4 @@
-#!/home/thatguysilver-desktop/py_projects/Random_world/venv/bin/python
+#!/home/thatguysilver/py_projects/Random_world/venv/bin/python
 
 import sys
 import getopt
