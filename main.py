@@ -34,11 +34,10 @@ def pop_generator():
 def executor():
     '''actually writes the program. Document write abilities
     forthcoming'''
-    #creature_pop_generator()
     contname = continent()
     size = continent()
     human_pop = continent()
-    print("""This is the land of {0}. It is {1} square kilometers.
+    text = ("""This is the land of {0}. It is {1} square kilometers.
           {2} people live in {0}."""
           .format(contname.name, size.land_area,
           human_pop.population))
@@ -46,7 +45,10 @@ def executor():
     world_directory = r'{}'.format(contname.name) #sets variable
     if not os.path.exists(world_directory): #Ensures that path doesn't exist yet
         os.makedirs(world_directory)
-        texttext = open('{}/testtext'.format(world_directory), 'w+')
+        testtext = open('{}/testtext'.format(world_directory), 'w+')
+        #for i in range(0, 10):
+            #inhabitants = name_creator()
+        testtext.write(text)
 
 executor()
 
