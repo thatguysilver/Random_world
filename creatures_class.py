@@ -20,8 +20,8 @@ class creature:
 
 class person(creature):
     #default person class; to be a subclass of creature
-    def __init__(self, person_name):
-        self.person_name = person_name
+    #def __init__(self):
+    person_name = name_creator()
     number_of_legs = 2 #class-level attribute
 """
 Figured it out on my break here at Lowe's.

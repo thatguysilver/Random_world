@@ -1,4 +1,4 @@
-from random import *
+from random import * #apparently this format is bad. Whoops.
 from sys import argv #necessary for writing to file
 from randomizer import name_creator
 from creatures_class import creature, person
@@ -24,35 +24,46 @@ def creature_pop_generator():
 
 def pop_generator():
     '''Generates people by calling the person class'''
-    population = 1 #soon to be referring to class continent.
+    population = 10 #soon to be referring to class continent.
     for x in range(0, population): #This will change.
         x = name_creator() #sets x equal to a string of gibberish.
         name = person(x) #establishes a variable here.
-        print(name.person_name) #prints the name.
-        print(name.number_of_legs) #prints a class-level variable for SnGs
+        return name.person_name #prints the name.
+        #print(name.number_of_legs) #prints a class-level variable for SnGs
 
 def executor():
-    '''actually writes the program. Document write abilities
-    forthcoming'''
+    '''actually writes the program.'''
+
     contname = continent()
     size = continent()
-    human_pop = continent()
-    text = ("""This is the land of {0}. It is {1} square kilometers.
-          {2} people live in {0}."""
-          .format(contname.name, size.land_area,
-          human_pop.population))
-    '''raw output; not in final product'''
+    human_pop = continent() #calls continent() to generate a population number
+
+    intro_text = ("""This is the land of {0}. It is {1} square kilometers.
+                  {2} people live in {0}."""
+                 .format(contname.name, size.land_area,
+                 human_pop.population))
+
+    pop_census_text = ("{} people live in {}. Their names are:"
+                      .format(human_pop.population, contname.name,))
+
+
+
     world_directory = r'{}'.format(contname.name) #sets variable
+
     if not os.path.exists(world_directory): #Ensures that path doesn't exist yet
         os.makedirs(world_directory)
-        testtext = open('{}/testtext'.format(world_directory), 'w+')
-        #for i in range(0, 10):
-            #inhabitants = name_creator()
-        testtext.write(text)
+
+        intro = open('{}/Introduction'.format(world_directory), 'w+')
+        intro.write(intro_text)
+
+        census = open('{}/Census'.format(world_directory), 'w+')
+        census.write(pop_census_text)
+        for i in range(1, 10): #human_pop.population):
+            census.write("\n" + "{}".format(name_creator()))
+
+
 
 executor()
-
-
 
 #Barebones foundation for future project: Each generated name will
     #be assigned to a class as a variable and a list of attributes will
