@@ -38,7 +38,7 @@ def executor():
     contname = continent()
     size = continent()
     human_pop = continent()
-    print"""This is the land of {0}. It is {1} square kilometers.
+    print("""This is the land of {0}. It is {1} square kilometers.
           {2} people live in {0}."""
           .format(contname.name, size.land_area,
           human_pop.population))
