@@ -11,8 +11,6 @@ class continent:
     population_density = randrange(10, 20000)
     population = population_density*int(land_area) #determines a realistic pop
 
-
-
 def creature_pop_generator():
     '''generates the number and
     types of creatures'''
@@ -31,7 +29,7 @@ def pop_generator():
         return name.person_name #prints the name.
         #print(name.number_of_legs) #prints a class-level variable for SnGs
 
-def executor():
+class generators():
     '''actually writes the program.'''
 
     contname = continent()
@@ -43,28 +41,41 @@ def executor():
                  .format(contname.name, size.land_area,
                  human_pop.population))
 
-    pop_census_text = ("{} people live in {}. Their names are:"
-                      .format(human_pop.population, contname.name,))
+    #pop_census_text = ("{} people live in {}. Their names are:"
+    #                  .format(human_pop.population, contname.name,))
 
-
+    creatures_text = ('''Here is where our creatures go.
+                        we will probably move this to an
+                        external file because the LaTeX
+                        formatting will be extensive.''')
 
     world_directory = r'{}'.format(contname.name) #sets variable
 
-    if not os.path.exists(world_directory): #Ensures that path doesn't exist yet
-        os.makedirs(world_directory)
+    def intro_generator(self):
 
-        intro = open('{}/Introduction'.format(world_directory), 'w+')
-        intro.write(intro_text)
+        if not os.path.exists(self.world_directory):
+            os.makedirs(self.world_directory)
+            intro = open('{}/Introduction'.format(self.world_directory), 'w+')
+            intro.write(self.intro_text)
 
-        census = open('{}/Census'.format(world_directory), 'w+')
+
+    def census_generator(self):
+        '''#this feature will probably be nixed.'''
+        census = open('{}/Census'.format(self.world_directory), 'w+')
         census.write(pop_census_text)
         for i in range(1, 10): #human_pop.population):
-            census.write("\n" + "{}".format(name_creator()))
+            census.write("\n" + "{}".format(self.name_creator()))
 
+    def creatures_generator(self):
+        '''generates a menagerie of 6-10 (tbd) creatures and their properties.'''
+        creatures = open('creatures', 'w+')
+        intro.write()
 
+    def magic_generator(self):
+        '''will generate a magic system for the continent.'''
 
-executor()
-
+x = generators()
+x.intro_generator()
 #Barebones foundation for future project: Each generated name will
     #be assigned to a class as a variable and a list of attributes will
     #be randomly generated for it.
