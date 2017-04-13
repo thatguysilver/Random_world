@@ -1,7 +1,12 @@
-from randomizer import *
+from random import *
+from randomizer import name_creator
 
 class creature:
     '''Everything that breathes is one of these.'''
+
+    def name(self):
+        self.name = name_creator()
+        return self.name
 
     def symmetry(self):
         num = randint(1, 100)
@@ -17,7 +22,7 @@ class creature:
             self.symmetry = "bilateral"
             return self.symmetry
 
-    def num_of_legs(self, symmetry):
+    def num_of_legs(self, symmetry): #requires symmetry for number of legs
         if symmetry == "bilateral":
             bnum = randint(1, 100)
             if bnum <=35:
@@ -44,9 +49,28 @@ class creature:
             self.num_of_legs = "n/a"
             return self.num_of_legs
 
+    def intelligence(self, symmetry):
+        self.inum = randrange(1,101)
+        return self.inum
 
+    def sentience(self, intelligence):
+        if intelligence < 40:
+            self.sentience = "none"
+            return self.sentience
+        elif intelligence >= 40 and intelligence < 60:
+            self.sentience = "low"
+            return self.sentience
+        elif intelligence >= 60 and intelligence < 70:
+            self.sentience = "medium"
+            return self.sentience
+        elif intelligence >= 70 and intelligence < 90:
+            self.sentience = "high"
+            return self.sentience
+        else:
+            self.sentience = "ascended superbeing"
+            return self.sentience
 
-class person(creature):
+class person(creature): #considering removing this.
     #default person class; to be a subclass of creature
     #def __init__(self):
     person_name = name_creator()
@@ -55,9 +79,15 @@ class person(creature):
 
 def creatures_text():
     c = creature()
-    creatures_text = ('''Symmetry: {} \nNumber of Legs: {}'''
-                         .format(c.symmetry(), #0
-                         c.num_of_legs(c.symmetry)))
+    creatures_text = (
+    '''Name: {} \nSymmetry: {} \nNumber of Legs: {} \nIntelligence: {}/100
+    Sentience: {}'''
+    .format(c.name(),
+            c.symmetry(), #0
+            c.num_of_legs(c.symmetry),
+            c.intelligence(c.symmetry),
+            c.sentience(c.inum)))
+
     print(creatures_text)
 
 

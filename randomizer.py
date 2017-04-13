@@ -1,8 +1,9 @@
 from word_blocks import blocks
-
 from random import *
 
-def name_creator(): #tests the blocks from word_blocks
+def name_creator(): #Generic; will be altered and cloned and altered later.
+    '''all names must include a bottom and top range for number of blocks.'''
+
     num_of_syl = randrange(2, 5)
     which_syl = blocks()
     if num_of_syl == 2:
