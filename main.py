@@ -44,10 +44,7 @@ class generators():
     #pop_census_text = ("{} people live in {}. Their names are:"
     #                  .format(human_pop.population, contname.name,))
 
-    creatures_text = ('''Here is where our creatures go.
-                        we will probably move this to an
-                        external file because the LaTeX
-                        formatting will be extensive.''')
+
 
     world_directory = r'{}'.format(contname.name) #sets variable
 
@@ -60,22 +57,26 @@ class generators():
 
 
     def census_generator(self):
-        '''#this feature will probably be nixed.'''
+        '''#this feature will probably be nixed. It's not interesting.'''
         census = open('{}/Census'.format(self.world_directory), 'w+')
         census.write(pop_census_text)
         for i in range(1, 10): #human_pop.population):
             census.write("\n" + "{}".format(self.name_creator()))
 
     def creatures_generator(self):
-        '''generates a menagerie of 6-10 (tbd) creatures and their properties.'''
-        creatures = open('creatures', 'w+')
-        intro.write()
+        '''will generate a menagerie of 6-10 (tbd) creatures and their properties.'''
+        c = creature()
+        creatures = open('{}/Creatures'.format(self.world_directory), 'w+')
+        creatures.write('{}'.format(c.creatures_text))
 
     def magic_generator(self):
         '''will generate a magic system for the continent.'''
+        m = open('{}/Magic System'.format(self.world_directory), 'w+')
 
 x = generators()
 x.intro_generator()
+x.creatures_generator()
+x.magic_generator()
 #Barebones foundation for future project: Each generated name will
     #be assigned to a class as a variable and a list of attributes will
     #be randomly generated for it.
