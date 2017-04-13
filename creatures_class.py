@@ -22,32 +22,38 @@ class creature:
             self.symmetry = "bilateral"
             return self.symmetry
 
-    def num_of_legs(self, symmetry): #requires symmetry for number of legs
+    def number_of_limbs(self, symmetry): #requires symmetry for Number of Limbs
         if symmetry == "bilateral":
             bnum = randint(1, 100)
-            if bnum <=35:
-                self.num_of_legs = 2
-                return self.num_of_legs
+            if bnum <=5:
+                self.number_of_limbs = 0
+                return self.number_of_limbs
+            elif bnum > 5 and bnum <= 35:
+                self.number_of_limbs = 2
             elif bnum > 35 and bnum <= 70:
-                self.num_of_legs = 4
-                return self.num_of_legs
+                self.number_of_limbs = 4
+                return self.number_of_limbs
             elif bnum > 70 and bnum <= 95:
-                self.num_of_legs = 8
-                return self.num_of_legs
+                self.number_of_limbs = 8
+                return self.number_of_limbs
             else:
-                self.num_of_legs = 6
-                return self.num_of_legs
+                self.number_of_limbs = 6
+                return self.number_of_limbs
         elif symmetry == "radial":
             rnum = randint(1, 100)
             if rnum <= 90:
-                self.num_of_legs = 0
-                return self.num_of_legs
+                self.number_of_limbs = 0
+                return self.number_of_limbs
             if rnum > 90 and rnum <= 95:
-                self.num_of_legs = 1
-                return self.num_of_legs
+                self.number_of_limbs = 1
+                return self.number_of_limbs
         else:
-            self.num_of_legs = "n/a"
-            return self.num_of_legs
+            self.number_of_limbs = "n/a"
+            return self.number_of_limbs
+
+    def mass(self):
+        self.mass = str(randrange(1, 5000)) + " kg"
+        return self.mass
 
     def intelligence(self, symmetry):
         self.inum = randrange(1,101)
@@ -57,16 +63,10 @@ class creature:
         if intelligence < 40:
             self.sentience = "none"
             return self.sentience
-        elif intelligence >= 40 and intelligence < 60:
-            self.sentience = "low"
-            return self.sentience
-        elif intelligence >= 60 and intelligence < 70:
-            self.sentience = "medium"
-            return self.sentience
-        elif intelligence >= 70 and intelligence < 90:
-            self.sentience = "high"
-            return self.sentience
-        else:
+        elif intelligence >= 40 and intelligence <= 90:
+            self.sentience_list = ["low", "moderate", "high (human-like)"]
+            return self.sentience_list[randint(0, 2)]
+        elif intelligence > 90:
             self.sentience = "ascended superbeing"
             return self.sentience
 
@@ -74,19 +74,20 @@ class person(creature): #considering removing this.
     #default person class; to be a subclass of creature
     #def __init__(self):
     person_name = name_creator()
-    number_of_legs = 2 #class-level attribute
+    number_of_limbs = 2 #class-level attribute
 
 
 def creatures_text():
     c = creature()
     creatures_text = (
-    '''Name: {} \nSymmetry: {} \nNumber of Legs: {} \nIntelligence: {}/100
-    Sentience: {}'''
+    '''Name: {} \nSymmetry: {} \nNumber of Limbs: {} \nIntelligence: {}/100
+Sentience: {} \nMass: {}'''
     .format(c.name(),
             c.symmetry(), #0
-            c.num_of_legs(c.symmetry),
+            c.number_of_limbs(c.symmetry),
             c.intelligence(c.symmetry),
-            c.sentience(c.inum)))
+            c.sentience(c.inum),
+            c.mass()))
 
     print(creatures_text)
 
