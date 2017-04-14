@@ -89,10 +89,10 @@ Sentience: {} \nMass: {}'''
             c.sentience(c.inum),
             c.mass()))
 
-    print(creatures_text)
+    return creatures_text
 
 
-creatures_text() #for testing the text
+print(creatures_text()) #for testing the text
 """
 Figured it out on my break here at Lowe's.
 It would seem that in this case, the

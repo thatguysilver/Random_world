@@ -2,6 +2,7 @@ from random import * #apparently this format is bad. Whoops.
 from sys import argv #necessary for writing to file
 from randomizer import name_creator
 from creatures_class import creatures_text
+from magic_system import magic_text
 import os
 
 class continent:
@@ -41,6 +42,8 @@ class generators():
                  .format(contname.name, size.land_area,
                  human_pop.population))
 
+    #magic_text = magic_text()
+
     #pop_census_text = ("{} people live in {}. Their names are:"
     #                  .format(human_pop.population, contname.name,))
 
@@ -65,13 +68,14 @@ class generators():
 
     def creatures_generator(self):
         '''will generate a menagerie of 6-10 (tbd) creatures and their properties.'''
-        
+
         creatures = open('{}/Creatures'.format(self.world_directory), 'w+')
         creatures.write('{}'.format(creatures_text()))
 
     def magic_generator(self):
         '''will generate a magic system for the continent.'''
         m = open('{}/Magic System'.format(self.world_directory), 'w+')
+        m.write('{}'.format(magic_text()))
 
 x = generators()
 x.intro_generator()

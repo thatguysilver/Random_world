@@ -25,7 +25,7 @@ can {2} {1}
                   m.magic_nouns[randrange(0, len(m.magic_nouns))],
                   m.magic_verbs[randrange(0, len(m.magic_nouns))]))
     print(magic_text)
-
+    return magic_text
 magic_text()
 '''
 spitballing here: Gotta brainstorm about magic systems now.
