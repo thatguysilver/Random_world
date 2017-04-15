@@ -10,11 +10,12 @@ from randomizer import name_creator
 
 class intro():
     '''generates the intro text'''
-
-    name = name_creator()
-    land_area = str(randrange(1000, 10000000))
-    population_density = randrange(10, 20000)
-    population = population_density*int(land_area)
+    def __init__(self):
+        self.name = name_creator()
+        self.land_area = str(randrange(1000, 10000000))
+        self.population_density = randrange(10, 20000)
+        self.population = self.population_density*int(self.land_area)
+        self.num_of_governments = randrange(1, 20) #arbitrary number; requires research
 
     def pop_generator(self):
         '''Generates people by calling the person class'''
@@ -30,8 +31,8 @@ def intro_text(): #creates the intro text to be written in main.py
     text = ('''
 
 Name = {}
-Size: {}
-Population: {} (population density = {})
+Size: {} square kilometers
+Population: {}  (population density = {})
 '''.format(i.name,      #0
            i.land_area,
            i.population,
