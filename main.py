@@ -55,13 +55,13 @@ class generators():
 
         if not os.path.exists(self.world_directory):
             os.makedirs(self.world_directory)
-            intro = open('{}/Introduction'.format(self.world_directory), 'w+')
+            intro = open('{}/Introduction.tex'.format(self.world_directory), 'w+')
             intro.write(self.intro_text)
 
 
     def census_generator(self):
         '''#this feature will probably be nixed. It's not interesting.'''
-        census = open('{}/Census'.format(self.world_directory), 'w+')
+        census = open('{}/Census.tex'.format(self.world_directory), 'w+')
         census.write(pop_census_text)
         for i in range(1, 10): #human_pop.population):
             census.write("\n" + "{}".format(self.name_creator()))
@@ -69,12 +69,12 @@ class generators():
     def creatures_generator(self):
         '''will generate a menagerie of 6-10 (tbd) creatures and their properties.'''
 
-        creatures = open('{}/Creatures'.format(self.world_directory), 'w+')
+        creatures = open('{}/Creatures.tex'.format(self.world_directory), 'w+')
         creatures.write('{}'.format(creatures_text()))
 
     def magic_generator(self):
         '''will generate a magic system for the continent.'''
-        m = open('{}/Magic System'.format(self.world_directory), 'w+')
+        m = open('{}/Magic System.tex'.format(self.world_directory), 'w+')
         m.write('{}'.format(magic_text()))
 
 x = generators()
