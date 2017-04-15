@@ -16,7 +16,7 @@ a = magic_system()
 
 def magic_text():
     m = magic_system()
-    magic_text = ('''
+    text = ('''
 
 In the land of {0}, magic is based on the power of {1}. A powerful practitioner
 can {2} {1}
@@ -24,8 +24,9 @@ can {2} {1}
                   "PLACEHOLDER",
                   m.magic_nouns[randrange(0, len(m.magic_nouns))],
                   m.magic_verbs[randrange(0, len(m.magic_nouns))]))
-    print(magic_text)
-    return magic_text
+    print(text) #tbd
+    return text
+
 magic_text()
 '''
 spitballing here: Gotta brainstorm about magic systems now.
