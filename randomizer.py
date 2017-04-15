@@ -41,7 +41,9 @@ def name_creator(): #Generic; will be altered and cloned and altered later.
                                                           consonant))],
                                which_syl.last_syl[randrange(0, len(which_syl.
                                                          last_syl))])
-print(name_creator())
+
+
+
 
 
 #the purpose of this file is to see how different py files might

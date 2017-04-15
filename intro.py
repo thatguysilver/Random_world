@@ -27,4 +27,15 @@ class intro():
 
 def intro_text(): #creates the intro text to be written in main.py
     i = intro()
-    i = ("PLACEHOLDER TEXT{}".format(i.name_creator()))
+    text = ('''
+
+Name = {}
+Size: {}
+Population: {} (population density = {})
+'''.format(i.name,      #0
+           i.land_area,
+           i.population,
+           i.population_density))
+    return text
+
+print(intro_text()) #for testing purposes only
