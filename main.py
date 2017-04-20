@@ -5,14 +5,14 @@ from creatures_class import creatures_text
 from magic_system import magic_text
 import os
 
-class continent:
-    '''data structure for generated continent'''
+class Continent: #to be removed and de-implemented; has been made obsolete by intro.py
+    '''data structure for generated Continent'''
     name = name_creator()
     land_area = str(randrange(1000, 10000000))
     population_density = randrange(10, 20000)
     population = population_density*int(land_area) #determines a realistic pop
 
-def creature_pop_generator():
+def creature_pop_generator(): #may be deleted; I can't see a reason for this to exist.
     '''generates the number and
     types of creatures'''
     #for x in range(0,9): #range #of creature types
@@ -21,21 +21,21 @@ def creature_pop_generator():
 # Problem: We are printing the pointer location.
 
 
-def pop_generator():
+def pop_generator(): #SCHEDULED FOR DEMOLITION
     '''Generates people by calling the person class'''
-    population = 10 #soon to be referring to class continent.
+    population = 10 #soon to be referring to class Continent.
     for x in range(0, population): #This will change.
         x = name_creator() #sets x equal to a string of gibberish.
         name = person(x) #establishes a variable here.
         return name.person_name #prints the name.
         #print(name.number_of_legs) #prints a class-level variable for SnGs
 
-class generators():
+class Generators():
     '''actually writes the program.'''
 
-    contname = continent()
-    size = continent()
-    human_pop = continent() #calls continent() to generate a population number
+    contname = Continent()
+    size = Continent()
+    human_pop = Continent() #calls Continent() to generate a population number
 
     intro_text = ("""This is the land of {0}. It is {1} square kilometers.
                   {2} people live in {0}."""
@@ -73,11 +73,11 @@ class generators():
         creatures.write('{}'.format(creatures_text()))
 
     def magic_generator(self):
-        '''will generate a magic system for the continent.'''
+        '''will generate a magic system for the Continent.'''
         m = open('{}/Magic System.tex'.format(self.world_directory), 'w+')
         m.write('{}'.format(magic_text()))
 
-x = generators()
+x = Generators()
 x.intro_generator()
 x.creatures_generator()
 x.magic_generator()

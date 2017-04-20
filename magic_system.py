@@ -2,7 +2,7 @@
 from random import *
 from randomizer import name_creator
 
-class magic_system:
+class MagicSystem:
 
     magic_nouns = ("the elements", "their ancestors", "nature spirits")
     magic_verbs = ("summon", "draw upon the power of", "harness")
@@ -10,12 +10,12 @@ class magic_system:
 
 
 
-a = magic_system()
+a = MagicSystem()
 
 
 
 def magic_text():
-    m = magic_system()
+    m = MagicSystem()
     text = ('''
 
 In the land of {0}, magic is based on the power of {1}. A powerful practitioner
