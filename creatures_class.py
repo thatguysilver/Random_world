@@ -79,15 +79,22 @@ class person(creature): #considering removing this.
 
 def creatures_text():
     c = creature()
-    creatures_text = (
-    '''Name: {} \nSymmetry: {} \nNumber of Limbs: {} \nIntelligence: {}/100
+    creatures_text = (r'''
+\documentclass{article}
+
+\begin {document}''' + '''
+
+Name: {} \nSymmetry: {} \nNumber of Limbs: {} \nIntelligence: {}/100
 Sentience: {} \nMass: {}'''
-    .format(c.name(),
-            c.symmetry(), #0
-            c.number_of_limbs(c.symmetry),
-            c.intelligence(c.symmetry),
-            c.sentience(c.inum),
-            c.mass()))
+        .format(c.name(),
+        c.symmetry(), #0
+        c.number_of_limbs(c.symmetry),
+        c.intelligence(c.symmetry),
+        c.sentience(c.inum),
+        c.mass()))+ r'''
+
+\end {document}'''
+
 
     return creatures_text
 

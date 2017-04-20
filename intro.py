@@ -28,8 +28,10 @@ class intro():
 
 def intro_text(): #creates the intro text to be written in main.py
     i = intro()
-    text = ('''
+    text = (r'''
+\documentclass{article}
 
+\begin{document}''' + '''
 Name = {}
 Size: {} square kilometers
 Population: {}  (population density = {})
@@ -37,6 +39,8 @@ Population: {}  (population density = {})
            i.land_area,
            i.population,
            i.population_density))
-    return text
+    return text + r'''
+
+\end{document}'''
 
 print(intro_text()) #for testing purposes only
