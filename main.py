@@ -54,8 +54,9 @@ class Generators():
     def intro_generator(self):
 
         if not os.path.exists(self.world_directory):
-            os.makedirs(self.world_directory)
-            intro = open('{}/Introduction.tex'.format(self.world_directory), 'w+')
+            os.makedirs("/home/thatguysilver/py_projects/Random_world/{}"
+            .format(self.world_directory))
+            intro = open('/home/thatguysilver/py_projects/Random_world/{}/Introduction.tex'.format(self.world_directory), 'w+')
             intro.write(self.intro_text)
 
 
@@ -69,12 +70,12 @@ class Generators():
     def creatures_generator(self):
         '''will generate a menagerie of 6-10 (tbd) creatures and their properties.'''
 
-        creatures = open('{}/Creatures.tex'.format(self.world_directory), 'w+')
+        creatures = open('/home/thatguysilver/py_projects/Random_world/{}/Creatures.tex'.format(self.world_directory), 'w+')
         creatures.write('{}'.format(creatures_text()))
 
     def magic_generator(self):
         '''will generate a magic system for the Continent.'''
-        m = open('{}/Magic System.tex'.format(self.world_directory), 'w+')
+        m = open('/home/thatguysilver/py_projects/Random_world/{}/Magic System.tex'.format(self.world_directory), 'w+')
         m.write('{}'.format(magic_text()))
 
 x = Generators()
