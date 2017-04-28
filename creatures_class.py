@@ -84,8 +84,9 @@ def creatures_text():
 
 \begin {document}''' + '''
 
-Name: {} \nSymmetry: {} \nNumber of Limbs: {} \nIntelligence: {}/100
-Sentience: {} \nMass: {}'''
+Name: {} \\\\Symmetry: {} \\\\Number of Limbs: {}
+\\\\Intelligence: {}/100
+Sentience: {} \\\\Mass: {}'''
         .format(c.name(),
         c.symmetry(), #0
         c.number_of_limbs(c.symmetry),
