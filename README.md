@@ -1,13 +1,19 @@
-# Random_world
-An opportunity to explore git through a personal side-project of mine: a fantasy world generator.
+# A random fantasy world generator!
+The goal of this project is to create a completely randomly-generated fantasy world and use the power of LaTeX to make a sort of miniature encyclopedia. The pages will be:
 
-Goals:
-1. To create lists of random first, middle,
-   last, and consonant word blocks
+1. **Title page**: Self-explanatory.
+2. **Introduction**: A breakdown of the demographics and geographic/geologic/climatological characteristics of the world.
+3. **Magic system**: How the magic system in our world works. This one's turning out to be a bit of a thinker.
+4. **Menagerie**: Randomly-generated critters and their characteristics.
 
-2. To generate a list of people, set their names
-   as variables belonging to class person, and
-   set some random attributes for those people
-3. To be able to (somehow) access these people
-   and view their attributes.
-4. (meta) to learn and apply oop.
+To-do: 
+1. Add automatic $pdflatex and rm \<auxiliary files> to the parts of the Generators class that make the pages
+2. Find out the most efficient way to splice pages together
+3. Add about 10x more randomly-generated characteristics to each page
+4. Add a tremendous amount of syllables, consonants, and vowels to the word_generator
+5. Add range arguments to the word_generator so people don't have five-syllable names and shit
+6. Remove bloat from main.py
+
+Future:
+1. Consider making it a feature of a website, rather than a pdf-creator thing
+2. Consider adding some basic visuals; for example, add some turtle-drawing for creatures with radial symmetry.
