@@ -3,6 +3,7 @@ from sys import argv #necessary for writing to file
 from randomizer import name_creator
 from creatures_class import creatures_text
 from magic_system import magic_text
+from intro import intro_text
 import os
 
 class Continent: #to be removed and de-implemented; has been made obsolete by intro.py
@@ -57,7 +58,7 @@ class Generators():
             os.makedirs("/home/thatguysilver/py_projects/Random_world/{}"
             .format(self.world_directory))
             intro = open('/home/thatguysilver/py_projects/Random_world/{}/Introduction.tex'.format(self.world_directory), 'w+')
-            intro.write(self.intro_text)
+            intro.write(intro_text())
 
 
     def census_generator(self):
@@ -67,21 +68,32 @@ class Generators():
         for i in range(1, 10): #human_pop.population):
             census.write("\n" + "{}".format(self.name_creator()))
 
-    def creatures_generator(self):
+    def creatures_generator(self): #SCHEDULED FOR DEMOLITION
         '''will generate a menagerie of 6-10 (tbd) creatures and their properties.'''
 
         creatures = open('/home/thatguysilver/py_projects/Random_world/{}/Creatures.tex'.format(self.world_directory), 'w+')
         creatures.write('{}'.format(creatures_text()))
 
-    def magic_generator(self):
+    def magic_generator(self): #SCHEDULED FOR DEMOLITION
         '''will generate a magic system for the Continent.'''
         m = open('/home/thatguysilver/py_projects/Random_world/{}/Magic System.tex'.format(self.world_directory), 'w+')
         m.write('{}'.format(magic_text()))
 
+    def book_generator(self): #TO REPLACE ALL OTHER GENERATORS
+        '''Replaces the above generators, making one function generate an entire book.'''
+        if not os.path.exists(self.world_directory):
+            os.makedirs("/home/thatguysilver/py_projects/Random_world/{}"
+            .format(self.world_directory))
+            doc = open('/home/thatguysilver/py_projects/Random_world/{}/Book.tex'.format(self.world_directory), 'w+')
+            doc.write('{} \n {} \n {}'
+            .format(intro_text(), magic_text(), creatures_text()))
+
+
 x = Generators()
-x.intro_generator()
-x.creatures_generator()
-x.magic_generator()
+#x.intro_generator()
+#x.creatures_generator()
+#x.magic_generator()
+x.book_generator()
 #Barebones foundation for future project: Each generated name will
     #be assigned to a class as a variable and a list of attributes will
     #be randomly generated for it.

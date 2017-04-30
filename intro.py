@@ -39,8 +39,8 @@ Population: {}  (population density = {})
            i.land_area,
            i.population,
            i.population_density))
-    return text + r'''
+    return text
 
-\end{document}'''
+
 
 print(intro_text()) #for testing purposes only

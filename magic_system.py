@@ -16,17 +16,13 @@ a = MagicSystem()
 
 def magic_text():
     m = MagicSystem()
-    text = (r'''
-\documentclass{article}''' + r'''
-
-\begin{document}''' + '''
+    text = ('''
 In the land of {0}, magic is based on the power of {1}. A powerful practitioner
 can {2} {1}
                   '''.format(
                   "PLACEHOLDER",
                   m.magic_nouns[randrange(0, len(m.magic_nouns))],
-                  m.magic_verbs[randrange(0, len(m.magic_nouns))])) + r'''
-\end{document}'''
+                  m.magic_verbs[randrange(0, len(m.magic_nouns))]))
 
     print(text) #tbd
     return text

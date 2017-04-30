@@ -79,10 +79,7 @@ class person(creature): #considering removing this.
 
 def creatures_text():
     c = creature()
-    creatures_text = (r'''
-\documentclass{article}
-
-\begin {document}''' + '''
+    creatures_text = ('''
 
 Name: {} \\\\Symmetry: {} \\\\Number of Limbs: {}
 \\\\Intelligence: {}/100
