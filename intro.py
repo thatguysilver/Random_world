@@ -1,5 +1,5 @@
 '''
-This will be the intro file; I'm going to begin
+This will be the Intro file; I'm going to begin
 the long and irritating process of moving most of
 the functions in main over here. Crossing my fingers
 that I don't break this thing in the process.
@@ -8,8 +8,8 @@ Thank God for git.
 from random import *
 from randomizer import name_creator
 
-class intro():
-    '''generates the intro text'''
+class Intro():
+    '''generates the Intro text'''
     def __init__(self):
         self.name = name_creator()
         self.land_area = str(randrange(1000, 10000000))
@@ -26,8 +26,8 @@ class intro():
             return name.person_name #prints the name.
             #print(name.number_of_legs) #prints a class-level variable for SnGs
 
-def intro_text(): #creates the intro text to be written in main.py
-    i = intro()
+def intro_text(): #creates the Intro text to be written in main.py
+    i = Intro()
     text = (r'''
 \documentclass{article}
 

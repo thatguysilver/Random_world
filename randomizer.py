@@ -1,11 +1,11 @@
-from word_blocks import blocks
+from word_blocks import Blocks
 from random import *
 
 def name_creator(): #Generic; will be altered and cloned and altered later.
     '''all names must include a bottom and top range for number of blocks.'''
 
     num_of_syl = randrange(2, 5)
-    which_syl = blocks()
+    which_syl = Blocks()
     if num_of_syl == 2:
         return "{}{}{}".format(which_syl.
                                first_syl[randrange(0, len(which_syl.

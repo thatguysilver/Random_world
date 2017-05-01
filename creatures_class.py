@@ -1,7 +1,7 @@
 from random import *
 from randomizer import name_creator
 
-class creature:
+class Creature:
     '''Everything that breathes is one of these.'''
 
     def name(self):
@@ -70,7 +70,7 @@ class creature:
             self.sentience = "ascended superbeing"
             return self.sentience
 
-class person(creature): #considering removing this.
+class person(Creature): #considering removing this.
     #default person class; to be a subclass of creature
     #def __init__(self):
     person_name = name_creator()
@@ -78,7 +78,7 @@ class person(creature): #considering removing this.
 
 
 def creatures_text():
-    c = creature()
+    c = Creature()
     creatures_text = ('''
 
 Name: {} \\\\Symmetry: {} \\\\Number of Limbs: {}

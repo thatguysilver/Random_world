@@ -1,5 +1,5 @@
 #Several lists of syllables, blocks, and other miscellaneous code.
-class blocks: #contains blocks of word-parts, which are (usually)
+class Blocks: #contains blocks of word-parts, which are (usually)
               #single syllables.
 
     first_syl = ["A", "Be", "Ci", "Du", "E",
