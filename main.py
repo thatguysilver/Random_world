@@ -38,18 +38,6 @@ class Generators():
     size = Continent()
     human_pop = Continent() #calls Continent() to generate a population number
 
-    intro_text = ("""This is the land of {0}. It is {1} square kilometers.
-                  {2} people live in {0}."""
-                 .format(contname.name, size.land_area,
-                 human_pop.population))
-
-    #magic_text = magic_text()
-
-    #pop_census_text = ("{} people live in {}. Their names are:"
-    #                  .format(human_pop.population, contname.name,))
-
-
-
     world_directory = r'{}'.format(contname.name) #sets variable
 
     def intro_generator(self):
@@ -61,32 +49,31 @@ class Generators():
             intro.write(intro_text())
 
 
-    def census_generator(self):
+    def census_generator(self): #SCHEDULED FOR DEMOLITION
         '''#this feature will probably be nixed. It's not interesting.'''
         census = open('{}/Census.tex'.format(self.world_directory), 'w+')
         census.write(pop_census_text)
         for i in range(1, 10): #human_pop.population):
             census.write("\n" + "{}".format(self.name_creator()))
 
-    def creatures_generator(self): #SCHEDULED FOR DEMOLITION
-        '''will generate a menagerie of 6-10 (tbd) creatures and their properties.'''
-
-        creatures = open('/home/thatguysilver/py_projects/Random_world/{}/Creatures.tex'.format(self.world_directory), 'w+')
-        creatures.write('{}'.format(creatures_text()))
-
-    def magic_generator(self): #SCHEDULED FOR DEMOLITION
-        '''will generate a magic system for the Continent.'''
-        m = open('/home/thatguysilver/py_projects/Random_world/{}/Magic System.tex'.format(self.world_directory), 'w+')
-        m.write('{}'.format(magic_text()))
-
     def book_generator(self): #TO REPLACE ALL OTHER GENERATORS
         '''Replaces the above generators, making one function generate an entire book.'''
+
         if not os.path.exists(self.world_directory):
             os.makedirs("/home/thatguysilver/py_projects/Random_world/{}"
             .format(self.world_directory))
-            doc = open('/home/thatguysilver/py_projects/Random_world/{}/Book.tex'.format(self.world_directory), 'w+')
+
+            doc = open('/home/thatguysilver/py_projects/Random_world/{}/Book.tex'
+            .format(self.world_directory), 'w+')
+
             doc.write('{} \n {} \n {}'
-            .format(intro_text(), magic_text(), creatures_text()))
+            .format(
+
+            intro_text(),
+            magic_text(),
+            creatures_text())
+
+            )
 
 
 x = Generators()
