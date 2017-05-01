@@ -25,7 +25,7 @@ class Creature:
     def number_of_limbs(self, symmetry): #requires symmetry for Number of Limbs
         if symmetry == "bilateral":
             bnum = randint(1, 100)
-            if bnum <=5:
+            if bnum <= 5:
                 self.number_of_limbs = 0
                 return self.number_of_limbs
             elif bnum > 5 and bnum <= 35:
@@ -70,6 +70,29 @@ class Creature:
             self.sentience = "ascended superbeing"
             return self.sentience
 
+    def temperament(self, intelligence):
+        '''purely reactive, fearful, docile, territorial, or
+        compulsively aggressive?'''
+
+        if intelligence < 20:
+            self.temperament = "purely reactive"
+            return self.temperament
+        else:
+            self.tnum = randrange(1,101)
+            if self.tnum < 25:
+                self.temperament = "docile"
+                return self.temperament
+            elif self.tnum >= 25 and self.tnum < 50:
+                self.temperament = "territorial"
+                return self.temperament
+            elif self.tnum >= 50 and self.tnum < 75:
+                self.temperament = "aggressive"
+                return self.temperament
+            elif self.tnum >= 75:
+                self.temperament = "easily frightened"
+                return self.temperament
+
+
 class person(Creature): #considering removing this.
     #default person class; to be a subclass of creature
     #def __init__(self):
@@ -81,15 +104,19 @@ def creatures_text():
     c = Creature()
     creatures_text = ('''
 
-Name: {} \\\\Symmetry: {} \\\\Number of Limbs: {}
-\\\\Intelligence: {}/100
-Sentience: {} \\\\Mass: {}'''
-        .format(c.name(),
-        c.symmetry(), #0
-        c.number_of_limbs(c.symmetry),
-        c.intelligence(c.symmetry),
-        c.sentience(c.inum),
-        c.mass()))+ r'''
+Name: {0} \\\\Symmetry: {1} \\\\Number of Limbs: {2}
+\\\\Intelligence: {3}/100
+Sentience: {4} \\\\Mass: {5} \\\\Temperament: {6}'''
+
+        .format(
+        c.name(),                       #0
+        c.symmetry(),                   #1
+        c.number_of_limbs(c.symmetry),  #2
+        c.intelligence(c.symmetry),     #3
+        c.sentience(c.inum),            #4
+        c.mass(),
+        c.temperament(c.inum))                       #5
+        ) + r'''
 
 \end {document}'''
 
