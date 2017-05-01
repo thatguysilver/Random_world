@@ -65,16 +65,17 @@ class Creature:
             return self.sentience
         elif intelligence >= 40 and intelligence <= 90:
             self.sentience_list = ["low", "moderate", "high (human-like)"]
-            return self.sentience_list[randint(0, 2)]
+            self.sentience =  self.sentience_list[randint(0, 2)]
+            return self.sentience
         elif intelligence > 90:
             self.sentience = "ascended superbeing"
             return self.sentience
 
-    def temperament(self, intelligence):
+    def temperament(self, inum):
         '''purely reactive, fearful, docile, territorial, or
         compulsively aggressive?'''
 
-        if intelligence < 20:
+        if inum < 20:
             self.temperament = "purely reactive"
             return self.temperament
         else:
@@ -92,6 +93,13 @@ class Creature:
                 self.temperament = "easily frightened"
                 return self.temperament
 
+    def domesticated(self, sentience, temperament):
+        if temperament == "docile" and sentience == "low":
+            self.domesticated = "Can be domesticated"
+            return self.domesticated
+        else:
+            self.domesticated = "Not possible"
+            return self.domesticated
 
 class person(Creature): #considering removing this.
     #default person class; to be a subclass of creature
@@ -106,7 +114,8 @@ def creatures_text():
 
 Name: {0} \\\\Symmetry: {1} \\\\Number of Limbs: {2}
 \\\\Intelligence: {3}/100
-Sentience: {4} \\\\Mass: {5} \\\\Temperament: {6}'''
+Sentience: {4} \\\\Mass: {5} \\\\Temperament: {6}
+Domesticated: {7}'''
 
         .format(
         c.name(),                       #0
@@ -114,8 +123,9 @@ Sentience: {4} \\\\Mass: {5} \\\\Temperament: {6}'''
         c.number_of_limbs(c.symmetry),  #2
         c.intelligence(c.symmetry),     #3
         c.sentience(c.inum),            #4
-        c.mass(),
-        c.temperament(c.inum))                       #5
+        c.mass(),                       #5
+        c.temperament(c.inum),          #6
+        c.domesticated(c.sentience, c.temperament))
         ) + r'''
 
 \end {document}'''
