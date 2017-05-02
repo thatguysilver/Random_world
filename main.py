@@ -76,11 +76,11 @@ class Generators():
             )
 
 
+
 x = Generators()
 #x.intro_generator()
-#x.creatures_generator()
+#x.creatures_generator()         #These three for testing
 #x.magic_generator()
 x.book_generator()
-#Barebones foundation for future project: Each generated name will
-    #be assigned to a class as a variable and a list of attributes will
-    #be randomly generated for it.
+
+os.system('''pdflatex /home/thatguysilver/py_projects/Random_world/{0}/Book.tex'''.format(x.world_directory))
