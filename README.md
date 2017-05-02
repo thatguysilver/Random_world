@@ -8,11 +8,10 @@ The goal of this project is to create a completely randomly-generated fantasy wo
 
 To-do: 
 1. Add automatic $pdflatex and rm \<auxiliary files> to the parts of the Generators class that make the pages
-2. Find out the most efficient way to splice pages together
-3. Add about 10x more randomly-generated characteristics to each page
-4. Add a tremendous amount of syllables, consonants, and vowels to the word_generator
-5. Add range arguments to the word_generator so people don't have five-syllable names and shit
-6. Remove bloat from main.py
+2. Add about 10x more randomly-generated characteristics to each page
+3. Add a tremendous amount of syllables, consonants, and vowels to the word_generator
+4. Add range arguments to the word_generator so people don't have five-syllable names and shit
+5. Remove bloat from main.py
 
 Future:
 1. Consider making it a feature of a website, rather than a pdf-creator thing
