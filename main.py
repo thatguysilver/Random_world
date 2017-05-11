@@ -1,5 +1,5 @@
 '''#! :/usr/bin/python3'''
-
+#EXPERIMENTAL CONTENT DISREGARD
 from random import * #apparently this format is bad. Whoops.
 from sys import argv #necessary for writing to file
 from randomizer import name_creator
