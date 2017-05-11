@@ -2,7 +2,6 @@
 from random import * #apparently this format is bad. Whoops.
 from sys import argv #necessary for writing to file
 from randomizer import name_creator
-#from creatures_class import creatures_text
 from magic_system import magic_text
 import os
 
