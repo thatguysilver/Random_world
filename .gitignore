@@ -3,3 +3,4 @@
 *.log
 *.aux
 *.tex
+/venv/
