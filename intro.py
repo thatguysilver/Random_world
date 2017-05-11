@@ -31,7 +31,7 @@ def intro_text(): #creates the Intro text to be written in main.py
 
     text = (r'''
 
-\section*{Introduction to PLACEHOLDER}''' + '''
+\section*{Introduction}''' + '''
 Name = {}
 Size: {} square kilometers
 Population: {}  (population density = {})

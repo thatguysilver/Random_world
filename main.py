@@ -6,13 +6,6 @@ from magic_system import magic_text
 from intro import intro_text, i # is the object that belongs to class Intro
 import os
 
-class Continent: #to be removed and de-implemented; has been made obsolete by intro.py
-    '''data structure for generated Continent'''
-    name = i.name
-    land_area = str(randrange(1000, 10000000))
-    population_density = randrange(10, 20000)
-    population = population_density*int(land_area) #determines a realistic pop
-
 def creature_pop_generator(): #may be deleted; I can't see a reason for this to exist.
     '''generates the number and
     types of creatures'''
@@ -34,11 +27,7 @@ def pop_generator(): #SCHEDULED FOR DEMOLITION
 class Generators(): #Consider nixing this in favor of a function.
     '''actually writes the program.'''
 
-    contname = Continent()
-    size = Continent()
-    human_pop = Continent() #calls Continent() to generate a population number
-
-    world_directory = r'{}'.format(contname.name) #sets variable
+    world_directory = r'{}'.format(i.name) #sets variable
 
     def intro_generator(self):
 
