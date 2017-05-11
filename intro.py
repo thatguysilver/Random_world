@@ -23,6 +23,7 @@ class Intro():
 i = Intro()
 def intro_text():
     '''Creates intro part of LaTeX document'''
+    import magic_system
     text = (r'''
 
 \section*{Introduction}''' + '''
