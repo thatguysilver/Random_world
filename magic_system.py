@@ -1,4 +1,3 @@
-#magic types
 from random import *
 from randomizer import name_creator
 from intro import i

@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+'''#! :/usr/bin/python3'''
 
 from random import * #apparently this format is bad. Whoops.
 from sys import argv #necessary for writing to file

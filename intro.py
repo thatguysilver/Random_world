@@ -1,10 +1,4 @@
-'''
-This will be the Intro file; I'm going to begin
-the long and irritating process of moving most of
-the functions in main over here. Crossing my fingers
-that I don't break this thing in the process.
-Thank God for git.
-'''
+
 from random import *
 from randomizer import name_creator
 
@@ -27,20 +21,24 @@ class Intro():
             #print(name.number_of_legs) #prints a class-level variable for SnGs
 
 i = Intro()
-def intro_text(): #creates the Intro text to be written in main.py
-
+def intro_text():
+    '''Creates intro part of LaTeX document'''
     text = (r'''
 
 \section*{Introduction}''' + '''
-Name = {}
-Size: {} square kilometers
-Population: {}  (population density = {})
-'''.format(i.name,      #0
-           i.land_area,
-           i.population,
-           i.population_density))
+Name = {0}
+Size: {1} square kilometers
+Population: {2}  (population density = {3})
+
+This is the land of {0}. {0} is a magical world, with powerful magical properties
+based on PLACEHOLDER. For the
+'''.format(i.name,                #0
+           i.land_area,           #1
+           i.population,          #2
+           i.population_density,  #3
+           ))
     return text
 
 
 
-#print(intro_text()) #for testing purposes only
+print(intro_text()) #for testing purposes only
