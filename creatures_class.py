@@ -110,8 +110,8 @@ class person(Creature): #considering removing this.
 
 def creatures_text():
     c = Creature()
-    creatures_text = ('''
-
+    creatures_text = (r'''
+\section*{Menagerie}''' + '''
 Name: {0} \\\\Symmetry: {1} \\\\Number of Limbs: {2}
 \\\\Intelligence: {3}/100
 Sentience: {4} \\\\Mass: {5} \\\\Temperament: {6}
