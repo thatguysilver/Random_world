@@ -2,7 +2,7 @@
 from random import * #apparently this format is bad. Whoops.
 from sys import argv #necessary for writing to file
 from randomizer import name_creator
-from magic_system import magic_text
+#from magic_system import magic_text
 import os
 
 def creature_pop_generator(): #may be deleted; I can't see a reason for this to exist.
@@ -49,7 +49,31 @@ based on PLACEHOLDER. For the
            i.population_density,  #3
            ))
     return text
+class MagicSystem:
 
+    magic_nouns = ("the elements", "their ancestors", "nature spirits")
+    magic_verbs = ("summon", "draw upon the power of", "harness")
+
+
+
+
+
+
+
+
+def magic_text():
+
+    text = (r'''
+\section*{Magic}''' + '''
+In the land of {0}, magic is based on the power of {1}. A powerful practitioner
+can {2} {1}
+                  '''.format(
+                  i.name,
+                  m.magic_nouns[randrange(0, len(m.magic_nouns))],
+                  m.magic_verbs[randrange(0, len(m.magic_nouns))]))
+
+    print(text) #tbd
+    return text
 class Creature:
     '''Everything that breathes is one of these.'''
 
@@ -178,6 +202,7 @@ Name: {0} \\\\Symmetry: {1} \\\\Number of Limbs: {2}
         )
     return text
 i = Intro()
+m = MagicSystem()
 c = Creature()
 class Generators(): #Consider nixing this in favor of a function.
     '''actually writes the program.'''
@@ -215,11 +240,11 @@ class Generators(): #Consider nixing this in favor of a function.
 
             \begin{document}''' + '''
 
-            {0} \n {1} '''#\n {2}'''
+            {0} \n {1} \n {2}'''
             .format(
 
             intro_text(),
-            #magic_text(),
+            magic_text(),
             creatures_text())
 
              + r'''
