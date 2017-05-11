@@ -109,13 +109,17 @@ class person(Creature): #considering removing this.
 
 
 def creatures_text():
-    c = Creature()
-    text = (r'''
-\section*{Menagerie}''' + '''
+    text = r'\section*{Menagerie}'
+    for i in range(8):
+
+        c = Creature()
+        text += ('''
 Name: {0} \\\\Symmetry: {1} \\\\Number of Limbs: {2}
 \\\\Intelligence: {3}/100
 \\\\Sentience: {4} \\\\Mass: {5} \\\\Temperament: {6}
-\\\\Domesticated: {7}'''
+\\\\Domesticated: {7}
+\\newline
+'''
 
         .format(
         c.name(),                                   #0
@@ -132,5 +136,5 @@ Name: {0} \\\\Symmetry: {1} \\\\Number of Limbs: {2}
     return text
     c = ''       #Necessary so we can reinstantiate a new critter each time
 
-for i in range(8):
-    print(creatures_text()) #for testing the text
+
+print(creatures_text()) #for testing the text
