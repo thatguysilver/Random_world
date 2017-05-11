@@ -33,10 +33,12 @@ class Intro():
 
 
 class MagicSystem:
+    def __init__(self):
+        self.magic_nouns = ("the elements", "their ancestors", "nature spirits")
+        self.magic_verbs = ("summon", "draw upon the power of", "harness")
 
-    magic_nouns = ("the elements", "their ancestors", "nature spirits")
-    magic_verbs = ("summon", "draw upon the power of", "harness")
-
+        self.magic_verb = self.magic_verbs[randrange(0, len(self.magic_verbs))]
+        self.magic_type = self.magic_nouns[randrange(0, len(self.magic_nouns))]
 
 
 
@@ -143,6 +145,15 @@ class Creature:
         else:
             self.domesticated = "Not possible"
             return self.domesticated
+
+i = Intro()       #
+m = MagicSystem() #  
+c = Creature()    #
+
+#class Unifier:             
+#    def __init__(self):
+#        i.self = Intro()
+#        m.self = 
 def intro_text():
     '''Creates intro part of LaTeX document'''
     text = (r'''
@@ -153,11 +164,12 @@ Size: {1} square kilometers
 Population: {2}  (population density = {3})
 
 This is the land of {0}. {0} is a magical world, with powerful magical properties
-based on PLACEHOLDER. For the
+based on {4}. For the
 '''.format(i.name,                #0
            i.land_area,           #1
            i.population,          #2
-           i.population_density,  #3
+           i.population_density,
+           m.magic_type
            ))
     return text
 
@@ -169,7 +181,8 @@ In the land of {0}, magic is based on the power of {1}. A powerful practitioner
 can {2} {1}
                   '''.format(
                   i.name,
-                  m.magic_nouns[randrange(0, len(m.magic_nouns))],
+                  m.magic_type,
+                  m.magic_verb,
                   m.magic_verbs[randrange(0, len(m.magic_nouns))]))
 
     print(text) #tbd
@@ -202,9 +215,6 @@ Name: {0} \\\\Symmetry: {1} \\\\Number of Limbs: {2}
         c.domesticated(c.sentience, c.temperament)) #7
         )
     return text
-i = Intro()
-m = MagicSystem()
-c = Creature()
 class Generators(): #Consider nixing this in favor of a function.
     '''actually writes the program.'''
 
