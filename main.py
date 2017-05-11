@@ -1,4 +1,4 @@
-'''#! :/usr/bin/python3'''
+#! /usr/bin/python3
 from random import * #apparently this format is bad. Whoops.
 from sys import argv #necessary for writing to file
 from randomizer import name_creator
@@ -31,23 +31,7 @@ class Intro():
             #print(name.number_of_legs) #prints a class-level variable for SnGs
 
 
-def intro_text():
-    '''Creates intro part of LaTeX document'''
-    text = (r'''
 
-\section*{Introduction}''' + '''
-Name = {0}
-Size: {1} square kilometers
-Population: {2}  (population density = {3})
-
-This is the land of {0}. {0} is a magical world, with powerful magical properties
-based on PLACEHOLDER. For the
-'''.format(i.name,                #0
-           i.land_area,           #1
-           i.population,          #2
-           i.population_density,  #3
-           ))
-    return text
 class MagicSystem:
 
     magic_nouns = ("the elements", "their ancestors", "nature spirits")
@@ -60,19 +44,6 @@ class MagicSystem:
 
 
 
-def magic_text():
-
-    text = (r'''
-\section*{Magic}''' + '''
-In the land of {0}, magic is based on the power of {1}. A powerful practitioner
-can {2} {1}
-                  '''.format(
-                  i.name,
-                  m.magic_nouns[randrange(0, len(m.magic_nouns))],
-                  m.magic_verbs[randrange(0, len(m.magic_nouns))]))
-
-    print(text) #tbd
-    return text
 class Creature:
     '''Everything that breathes is one of these.'''
 
@@ -172,8 +143,39 @@ class Creature:
         else:
             self.domesticated = "Not possible"
             return self.domesticated
+def intro_text():
+    '''Creates intro part of LaTeX document'''
+    text = (r'''
 
-def creatures_text():
+\section*{Introduction}''' + '''
+Name = {0}
+Size: {1} square kilometers
+Population: {2}  (population density = {3})
+
+This is the land of {0}. {0} is a magical world, with powerful magical properties
+based on PLACEHOLDER. For the
+'''.format(i.name,                #0
+           i.land_area,           #1
+           i.population,          #2
+           i.population_density,  #3
+           ))
+    return text
+
+def magic_text():
+
+    text = (r'''
+\section*{Magic}''' + '''
+In the land of {0}, magic is based on the power of {1}. A powerful practitioner
+can {2} {1}
+                  '''.format(
+                  i.name,
+                  m.magic_nouns[randrange(0, len(m.magic_nouns))],
+                  m.magic_verbs[randrange(0, len(m.magic_nouns))]))
+
+    print(text) #tbd
+    return text
+
+def text_generator():
     text = r'\section*{Menagerie}' + '''
 
 In the land of {}  contains many interesting creatures. Here are a few of
@@ -217,12 +219,6 @@ class Generators(): #Consider nixing this in favor of a function.
             intro.write(intro_text())
 
 
-    def census_generator(self): #SCHEDULED FOR DEMOLITION
-        '''#this feature will probably be nixed. It's not interesting.'''
-        census = open('{}/Census.tex'.format(self.world_directory), 'w+')
-        census.write(pop_census_text)
-        for i in range(1, 10): #human_pop.population):
-            census.write("\n" + "{}".format(self.name_creator()))
 
     def book_generator(self): #TO REPLACE ALL OTHER GENERATORS
         '''Replaces the above generators, making one function generate an entire book.'''
@@ -239,18 +235,15 @@ class Generators(): #Consider nixing this in favor of a function.
 
             \begin{document}''' + '''
 
-            {0} \n {1} \n {2}'''
+            {0}'''
             .format(
-
-            intro_text(),
-            magic_text(),
-            creatures_text())
+                text_generator()
 
              + r'''
 
             \end {document}'''
 
-            )
+            ))
 
 
 
