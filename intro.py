@@ -26,8 +26,9 @@ class Intro():
             return name.person_name #prints the name.
             #print(name.number_of_legs) #prints a class-level variable for SnGs
 
+i = Intro()
 def intro_text(): #creates the Intro text to be written in main.py
-    i = Intro()
+
     text = (r'''
 
 \section*{Introduction to PLACEHOLDER}''' + '''

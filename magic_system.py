@@ -10,12 +10,12 @@ class MagicSystem:
 
 
 
-a = MagicSystem()
+m = MagicSystem()
 
 
 
 def magic_text():
-    m = MagicSystem()
+
     text = (r'''
 \section*{Magic in PLACEHOLDER}''' + '''
 In the land of {0}, magic is based on the power of {1}. A powerful practitioner

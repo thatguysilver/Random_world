@@ -3,12 +3,12 @@ from sys import argv #necessary for writing to file
 from randomizer import name_creator
 from creatures_class import creatures_text
 from magic_system import magic_text
-from intro import intro_text
+from intro import intro_text, i # is the object that belongs to class Intro
 import os
 
 class Continent: #to be removed and de-implemented; has been made obsolete by intro.py
     '''data structure for generated Continent'''
-    name = name_creator()
+    name = i.name
     land_area = str(randrange(1000, 10000000))
     population_density = randrange(10, 20000)
     population = population_density*int(land_area) #determines a realistic pop

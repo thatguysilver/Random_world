@@ -101,13 +101,6 @@ class Creature:
             self.domesticated = "Not possible"
             return self.domesticated
 
-class person(Creature): #considering removing this.
-    #default person class; to be a subclass of creature
-    #def __init__(self):
-    person_name = name_creator()
-    number_of_limbs = 2 #class-level attribute
-
-
 def creatures_text():
     text = r'\section*{Menagerie}'
     for i in range(8):
