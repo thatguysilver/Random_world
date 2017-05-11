@@ -31,7 +31,7 @@ def pop_generator(): #SCHEDULED FOR DEMOLITION
         return name.person_name #prints the name.
         #print(name.number_of_legs) #prints a class-level variable for SnGs
 
-class Generators():
+class Generators(): #Consider nixing this in favor of a function.
     '''actually writes the program.'''
 
     contname = Continent()
@@ -66,12 +66,21 @@ class Generators():
             doc = open('/home/thatguysilver/py_projects/Random_world/{}/Book.tex'
             .format(self.world_directory), 'w+')
 
-            doc.write('{} \n {} \n {}'
+            doc.write(r'''
+            \documentclass{article}
+
+            \begin{document}''' + '''
+
+            {0} \n {1} \n {2} \n {2}'''
             .format(
 
             intro_text(),
             magic_text(),
             creatures_text())
+
+             + r'''
+
+            \end {document}'''
 
             )
 

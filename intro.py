@@ -29,9 +29,7 @@ class Intro():
 def intro_text(): #creates the Intro text to be written in main.py
     i = Intro()
     text = (r'''
-\documentclass{article}
 
-\begin{document}
 \section*{Introduction to PLACEHOLDER}''' + '''
 Name = {}
 Size: {} square kilometers

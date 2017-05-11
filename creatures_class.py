@@ -110,35 +110,27 @@ class person(Creature): #considering removing this.
 
 def creatures_text():
     c = Creature()
-    creatures_text = (r'''
+    text = (r'''
 \section*{Menagerie}''' + '''
 Name: {0} \\\\Symmetry: {1} \\\\Number of Limbs: {2}
 \\\\Intelligence: {3}/100
-Sentience: {4} \\\\Mass: {5} \\\\Temperament: {6}
-Domesticated: {7}'''
+\\\\Sentience: {4} \\\\Mass: {5} \\\\Temperament: {6}
+\\\\Domesticated: {7}'''
 
         .format(
-        c.name(),                       #0
-        c.symmetry(),                   #1
-        c.number_of_limbs(c.symmetry),  #2
-        c.intelligence(c.symmetry),     #3
-        c.sentience(c.inum),            #4
-        c.mass(),                       #5
-        c.temperament(c.inum),          #6
-        c.domesticated(c.sentience, c.temperament))
-        ) + r'''
-
-\end {document}'''
+        c.name(),                                   #0
+        c.symmetry(),                               #1
+        c.number_of_limbs(c.symmetry),              #2
+        c.intelligence(c.symmetry),                 #3
+        c.sentience(c.inum),                        #4
+        c.mass(),                                   #5
+        c.temperament(c.inum),                      #6
+        c.domesticated(c.sentience, c.temperament)) #7
+        )
 
 
-    return creatures_text
+    return text
+    c = ''       #Necessary so we can reinstantiate a new critter each time
 
-
-print(creatures_text()) #for testing the text
-"""
-Figured it out on my break here at Lowe's.
-It would seem that in this case, the
-person_name var takes in the x var from
-main.py. I still have a lot to learn, but
-I'm making a little progress.
-"""
+for i in range(8):
+    print(creatures_text()) #for testing the text
