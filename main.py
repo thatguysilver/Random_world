@@ -175,7 +175,7 @@ can {2} {1}
     print(text) #tbd
     return text
 
-def text_generator():
+def creatures_text():
     text = r'\section*{Menagerie}' + '''
 
 In the land of {}  contains many interesting creatures. Here are a few of
@@ -235,10 +235,12 @@ class Generators(): #Consider nixing this in favor of a function.
 
             \begin{document}''' + '''
 
-            {0}'''
+            {0} \n {1} \n {2}'''
             .format(
-                text_generator()
-
+                intro_text(),
+                magic_text(),
+                creatures_text()
+                
              + r'''
 
             \end {document}'''
