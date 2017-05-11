@@ -1,3 +1,4 @@
+'''
 from random import *
 from randomizer import name_creator
 from intro import i
@@ -103,7 +104,7 @@ class Creature:
             return self.domesticated
 
 def creatures_text():
-    
+
     text = r'\section*{Menagerie}' + '''
 
 In the land of {}  contains many interesting creatures. Here are a few of
@@ -137,3 +138,4 @@ Name: {0} \\\\Symmetry: {1} \\\\Number of Limbs: {2}
 
 print(creatures_text()) #for testing the text
 #print(i.name)
+'''

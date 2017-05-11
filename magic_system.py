@@ -1,3 +1,4 @@
+'''
 from random import *
 from randomizer import name_creator
 from intro import i
@@ -29,6 +30,7 @@ can {2} {1}
     return text
 
 magic_text()
+'''
 '''
 spitballing here: Gotta brainstorm about magic systems now.
 

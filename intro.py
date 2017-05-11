@@ -1,4 +1,4 @@
-
+'''
 from random import *
 from randomizer import name_creator
 
@@ -33,7 +33,7 @@ Population: {2}  (population density = {3})
 
 This is the land of {0}. {0} is a magical world, with powerful magical properties
 based on PLACEHOLDER. For the
-'''.format(i.name,                #0
+.format(i.name,                #0
            i.land_area,           #1
            i.population,          #2
            i.population_density,  #3
@@ -43,3 +43,4 @@ based on PLACEHOLDER. For the
 
 
 print(intro_text()) #for testing purposes only
+'''
