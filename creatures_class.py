@@ -1,5 +1,6 @@
 from random import *
 from randomizer import name_creator
+from intro import i
 
 class Creature:
     '''Everything that breathes is one of these.'''
@@ -102,8 +103,12 @@ class Creature:
             return self.domesticated
 
 def creatures_text():
-    text = r'\section*{Menagerie}'
-    for i in range(8):
+    
+    text = r'\section*{Menagerie}' + '''
+
+In the land of {}  contains many interesting creatures. Here are a few of
+the creatures you could run into on your travels.'''.format(i.name)
+    for j in range(8):
 
         c = Creature()
         text += ('''
@@ -131,3 +136,4 @@ Name: {0} \\\\Symmetry: {1} \\\\Number of Limbs: {2}
 
 
 print(creatures_text()) #for testing the text
+#print(i.name)

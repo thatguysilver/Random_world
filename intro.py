@@ -43,4 +43,4 @@ Population: {}  (population density = {})
 
 
 
-print(intro_text()) #for testing purposes only
+#print(intro_text()) #for testing purposes only

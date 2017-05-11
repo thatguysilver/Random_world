@@ -3,7 +3,7 @@ from sys import argv #necessary for writing to file
 from randomizer import name_creator
 from creatures_class import creatures_text
 from magic_system import magic_text
-from intro import intro_text, i # is the object that belongs to class Intro
+from intro import intro_text, i # i is the object that belongs to class Intro
 import os
 
 def creature_pop_generator(): #may be deleted; I can't see a reason for this to exist.
@@ -15,14 +15,7 @@ def creature_pop_generator(): #may be deleted; I can't see a reason for this to 
 # Problem: We are printing the pointer location.
 
 
-def pop_generator(): #SCHEDULED FOR DEMOLITION
-    '''Generates people by calling the person class'''
-    population = 10 #soon to be referring to class Continent.
-    for x in range(0, population): #This will change.
-        x = name_creator() #sets x equal to a string of gibberish.
-        name = person(x) #establishes a variable here.
-        return name.person_name #prints the name.
-        #print(name.number_of_legs) #prints a class-level variable for SnGs
+
 
 class Generators(): #Consider nixing this in favor of a function.
     '''actually writes the program.'''
