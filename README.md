@@ -15,7 +15,6 @@ To-do:
 3. Add a tremendous amount of syllables, consonants, and vowels to the word_generator
 4. Add range arguments to the word_generator so people don't have five-syllable names and shit
 5. Remove bloat from main.py
-6. Combine nearly everything into one document; the circular imports are beginning to break the app.
 
 Future:
 1. Consider making it a feature of a website, rather than a pdf-creator thing
