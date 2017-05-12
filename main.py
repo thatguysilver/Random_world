@@ -4,14 +4,6 @@ from sys import argv #necessary for writing to file
 from randomizer import name_creator
 import os
 
-def creature_pop_generator(): #may be deleted; I can't see a reason for this to exist.
-    '''generates the number and
-    types of creatures'''
-    #for x in range(0,9): #range #of creature types
-    x =  creature()
-    print(x.num_of_legs())
-# Problem: We are printing the pointer location.
-
 class Intro():
     '''generates the Intro text'''
     def __init__(self):
@@ -28,23 +20,16 @@ class Intro():
             x = name_creator() #sets x equal to a string of gibberish.
             name = person(x) #establishes a variable here.
             return name.person_name #prints the name.
-            #print(name.number_of_legs) #prints a class-level variable for SnGs
-
-
 
 class MagicSystem:
+    '''Randomly generates our world's magic system.'''
+
     def __init__(self):
         self.magic_nouns = ("the elements", "their ancestors", "nature spirits")
         self.magic_verbs = ("summon", "draw upon the power of", "harness")
 
         self.magic_verb = self.magic_verbs[randrange(0, len(self.magic_verbs))]
         self.magic_type = self.magic_nouns[randrange(0, len(self.magic_nouns))]
-
-
-
-
-
-
 
 class Creature:
     '''Everything that breathes is one of these.'''
@@ -67,7 +52,9 @@ class Creature:
             self.symmetry = "bilateral"
             return self.symmetry
 
-    def number_of_limbs(self, symmetry): #requires symmetry for Number of Limbs
+    def number_of_limbs(self, symmetry):
+        '''Determines how many limbs our critter has.'''
+
         if symmetry == "bilateral":
             bnum = randint(1, 100)
             if bnum <= 5:
@@ -97,14 +84,20 @@ class Creature:
             return self.number_of_limbs
 
     def mass(self):
+        '''determines mass'''
+
         self.mass = str(randrange(1, 5000)) + " kg"
         return self.mass
 
     def intelligence(self, symmetry):
+        '''Randomly generates intelligence'''
+
         self.inum = randrange(1,101)
         return self.inum
 
     def sentience(self, intelligence):
+        '''Assumes that sentience and intelligence are weakly correllated'''
+
         if intelligence < 40:
             self.sentience = "none"
             return self.sentience
@@ -139,6 +132,8 @@ class Creature:
                 return self.temperament
 
     def domesticated(self, sentience, temperament):
+        '''Can it be domesticated?'''
+
         if temperament == "docile" and sentience == "low":
             self.domesticated = "Can be domesticated"
             return self.domesticated
@@ -150,10 +145,6 @@ i = Intro()       #
 m = MagicSystem() #  
 c = Creature()    #
 
-#class Unifier:             
-#    def __init__(self):
-#        i.self = Intro()
-#        m.self = 
 def intro_text():
     '''Creates intro part of LaTeX document'''
     text = (r'''
@@ -179,16 +170,16 @@ def magic_text():
 \section*{Magic}''' + '''
 In the land of {0}, magic is based on the power of {1}. A powerful practitioner
 can {2} {1}
-                  '''.format(
-                  i.name,
-                  m.magic_type,
-                  m.magic_verb,
-                  m.magic_verbs[randrange(0, len(m.magic_nouns))]))
+    
+'''.format(i.name,
+           m.magic_type,
+           m.magic_verb,
+           m.magic_verbs[randrange(0, len(m.magic_nouns))]))
 
-    print(text) #tbd
     return text
 
 def creatures_text():
+    
     text = r'\section*{Menagerie}' + '''
 
 In the land of {}  contains many interesting creatures. Here are a few of
@@ -215,22 +206,14 @@ Name: {0} \\\\Symmetry: {1} \\\\Number of Limbs: {2}
         c.domesticated(c.sentience, c.temperament)) #7
         )
     return text
-class Generators(): #Consider nixing this in favor of a function.
+
+class Generators(): #To be deleted in favor of a simple function.
     '''actually writes the program.'''
 
-    world_directory = r'{}'.format(i.name) #sets variable
-
-    def intro_generator(self):
-
-        if not os.path.exists(self.world_directory):
-            os.makedirs("/home/thatguysilver/py_projects/Random_world/{}"
-            .format(self.world_directory))
-            intro = open('/home/thatguysilver/py_projects/Random_world/{}/Introduction.tex'.format(self.world_directory), 'w+')
-            intro.write(intro_text())
+    world_directory = r'{}'.format(i.name) 
 
 
-
-    def book_generator(self): #TO REPLACE ALL OTHER GENERATORS
+    def book_generator(self): 
         '''Replaces the above generators, making one function generate an entire book.'''
 
         if not os.path.exists(self.world_directory):
@@ -260,9 +243,6 @@ class Generators(): #Consider nixing this in favor of a function.
 
 
 x = Generators()
-#x.intro_generator()
-#x.creatures_generator()         #These three for testing
-#x.magic_generator()
 x.book_generator()
 
 os.system('''pdflatex /home/thatguysilver/py_projects/Random_world/{0}/Book.tex'''.format(x.world_directory))
