@@ -1,6 +1,6 @@
-#magic types
 from random import *
 from randomizer import name_creator
+from intro import i
 
 class MagicSystem:
 
@@ -10,17 +10,18 @@ class MagicSystem:
 
 
 
-a = MagicSystem()
+m = MagicSystem()
 
 
 
 def magic_text():
-    m = MagicSystem()
-    text = ('''
+
+    text = (r'''
+\section*{Magic}''' + '''
 In the land of {0}, magic is based on the power of {1}. A powerful practitioner
 can {2} {1}
                   '''.format(
-                  "PLACEHOLDER",
+                  i.name,
                   m.magic_nouns[randrange(0, len(m.magic_nouns))],
                   m.magic_verbs[randrange(0, len(m.magic_nouns))]))
 

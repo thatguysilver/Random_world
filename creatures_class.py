@@ -1,7 +1,8 @@
 from random import *
 from randomizer import name_creator
+from intro import i
 
-class creature:
+class Creature:
     '''Everything that breathes is one of these.'''
 
     def name(self):
@@ -25,7 +26,7 @@ class creature:
     def number_of_limbs(self, symmetry): #requires symmetry for Number of Limbs
         if symmetry == "bilateral":
             bnum = randint(1, 100)
-            if bnum <=5:
+            if bnum <= 5:
                 self.number_of_limbs = 0
                 return self.number_of_limbs
             elif bnum > 5 and bnum <= 35:
@@ -65,43 +66,74 @@ class creature:
             return self.sentience
         elif intelligence >= 40 and intelligence <= 90:
             self.sentience_list = ["low", "moderate", "high (human-like)"]
-            return self.sentience_list[randint(0, 2)]
+            self.sentience =  self.sentience_list[randint(0, 2)]
+            return self.sentience
         elif intelligence > 90:
             self.sentience = "ascended superbeing"
             return self.sentience
 
-class person(creature): #considering removing this.
-    #default person class; to be a subclass of creature
-    #def __init__(self):
-    person_name = name_creator()
-    number_of_limbs = 2 #class-level attribute
+    def temperament(self, inum):
+        '''purely reactive, fearful, docile, territorial, or
+        compulsively aggressive?'''
 
+        if inum < 20:
+            self.temperament = "purely reactive"
+            return self.temperament
+        else:
+            self.tnum = randrange(1,101)
+            if self.tnum < 25:
+                self.temperament = "docile"
+                return self.temperament
+            elif self.tnum >= 25 and self.tnum < 50:
+                self.temperament = "territorial"
+                return self.temperament
+            elif self.tnum >= 50 and self.tnum < 75:
+                self.temperament = "aggressive"
+                return self.temperament
+            elif self.tnum >= 75:
+                self.temperament = "easily frightened"
+                return self.temperament
+
+    def domesticated(self, sentience, temperament):
+        if temperament == "docile" and sentience == "low":
+            self.domesticated = "Can be domesticated"
+            return self.domesticated
+        else:
+            self.domesticated = "Not possible"
+            return self.domesticated
 
 def creatures_text():
-    c = creature()
-    creatures_text = ('''
+    
+    text = r'\section*{Menagerie}' + '''
 
-Name: {} \\\\Symmetry: {} \\\\Number of Limbs: {}
-\\\\Intelligence: {}/100
-Sentience: {} \\\\Mass: {}'''
-        .format(c.name(),
-        c.symmetry(), #0
-        c.number_of_limbs(c.symmetry),
-        c.intelligence(c.symmetry),
-        c.sentience(c.inum),
-        c.mass()))+ r'''
+In the land of {}  contains many interesting creatures. Here are a few of
+the creatures you could run into on your travels.'''.format(i.name)
+    for j in range(8):
 
-\end {document}'''
+        c = Creature()
+        text += ('''
+Name: {0} \\\\Symmetry: {1} \\\\Number of Limbs: {2}
+\\\\Intelligence: {3}/100
+\\\\Sentience: {4} \\\\Mass: {5} \\\\Temperament: {6}
+\\\\Domesticated: {7}
+\\newline
+'''
+
+        .format(
+        c.name(),                                   #0
+        c.symmetry(),                               #1
+        c.number_of_limbs(c.symmetry),              #2
+        c.intelligence(c.symmetry),                 #3
+        c.sentience(c.inum),                        #4
+        c.mass(),                                   #5
+        c.temperament(c.inum),                      #6
+        c.domesticated(c.sentience, c.temperament)) #7
+        )
 
 
-    return creatures_text
+    return text
+    c = ''       #Necessary so we can reinstantiate a new critter each time
 
 
 print(creatures_text()) #for testing the text
-"""
-Figured it out on my break here at Lowe's.
-It would seem that in this case, the
-person_name var takes in the x var from
-main.py. I still have a lot to learn, but
-I'm making a little progress.
-"""
+#print(i.name)
