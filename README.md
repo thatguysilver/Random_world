@@ -14,7 +14,6 @@ To-do:
 2. Add about 10x more randomly-generated characteristics to each page
 3. Add a tremendous amount of syllables, consonants, and vowels to the word_generator
 4. Add range arguments to the word_generator so people don't have five-syllable names and shit
-5. Remove bloat from main.py
 
 Future:
 1. Consider making it a feature of a website, rather than a pdf-creator thing
