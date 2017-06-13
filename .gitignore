@@ -1,9 +1,11 @@
-*.pyc
+.pyc
 *.pdf
 *.log
 *.aux
 *.tex
+/Book/
 /venv/
 os
 *swp
 *swo
+d.py

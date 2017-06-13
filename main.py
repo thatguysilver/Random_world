@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#! venv/bin/python3.6
 from random import * #apparently this format is bad. Whoops.
 from sys import argv #necessary for writing to file
 from randomizer import name_creator
@@ -207,42 +207,33 @@ Name: {0} \\\\Symmetry: {1} \\\\Number of Limbs: {2}
         )
     return text
 
-class Generators(): #To be deleted in favor of a simple function.
-    '''actually writes the program.'''
-
-    world_directory = r'{}'.format(i.name) 
-
-
-    def book_generator(self): 
-        '''Replaces the above generators, making one function generate an entire book.'''
-
-        if not os.path.exists(self.world_directory):
-            os.makedirs("/home/thatguysilver/py_projects/Random_world/{}"
-            .format(self.world_directory))
-
-            doc = open('/home/thatguysilver/py_projects/Random_world/{}/Book.tex'
-            .format(self.world_directory), 'w+')
-
-            doc.write(r'''
-            \documentclass{article}
-
-            \begin{document}''' + '''
-
-            {0} \n {1} \n {2}'''
-            .format(
-                intro_text(),
-                magic_text(),
-                creatures_text()
-                
-             + r'''
-
-            \end {document}'''
-
-            ))
+def generate():
+    desired_directory = input('Where do you want to create your world?')
+    if 'Book' not in os.listdir(desired_directory):
+        os.system(f'mkdir {desired_directory}/Book')
+        doc = open(f'{desired_directory}/Book/Book.tex', 'w+')
+        doc.write(r'''
+\documentclass{article}
+          
+\begin{document}''' + '''
+               
+{0} \n {1} \n {2}'''
+.format(
+    intro_text(),
+    magic_text(),
+    creatures_text()
+                      
+    +r'''
+                    
+    \end {document}'''
+            
+        ))
 
 
+    else: 
+        print('There\s already a book there.')
 
-x = Generators()
-x.book_generator()
 
-os.system('''pdflatex /home/thatguysilver/py_projects/Random_world/{0}/Book.tex'''.format(x.world_directory))
+if __name__ == '__main__':
+    generate()
+
