@@ -8,6 +8,8 @@
 }
 body {
 	padding-top: 65px;
+	font-size: 14px;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
 
 }
 #test {
@@ -23,13 +25,18 @@ body {
 
 </head>
 <body>
-	<div class = 'jumbotron'>
-		<div class = 'container-fluid' id = 'test'>
+	<div style = 'padding-top: 15px;' class = 'container-fluid'>
+		<div style = 'padding-left: 10px' class = 'row' id = 'test'>
 			<a href = 'generated' download>
 				<button type = 'button' 
 					class = 'btn btn-danger'>Download .pdf file</button>
+			</a>
 		</div>
 	</div>
+	<p style = 'padding-top: 7px'>
+	This is a random fantasy world generator. It's in its very early stages;
+	for now, all it does is generate some stats about the world, a blurb
+ about the magic system and a list of eight magical creatures.</p>
 
 	{% block test %}{% endblock %}
 	<!-- note: bootstrap css is at bottom because internet is very bad where I'm developing this. TBM to the top later. -->
