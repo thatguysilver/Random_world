@@ -253,14 +253,16 @@ def go():
 
     return render_template('layout.html') 
 
-@app.route('/download')
+@app.route('/generated')
 def download():
+    global i, c, m
+    i = Intro()
+    c = Creature()
+    m = MagicSystem()
 
     generate()
     os.system(f'pdflatex -output-directory app/Book app/Book/Book.tex')
-
-   
-
+    
     return send_file('Book/Book.pdf',
             as_attachment = True)
 
