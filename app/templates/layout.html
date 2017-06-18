@@ -1,6 +1,21 @@
 <!Doctype html>
 <head>
-	<a href = 'generated' download>Click me!</a>
+	<div class = 'jumbotron'>
+		<div class = 'container-fluid'>
+			<a href = 'generated' download>
+				<button type = 'button' class = 'btn btn-danger'>Click me!</h1></button>
+		</div>
+	</div>
 </head>
 <body>
+
+	{% block test %}{% endblock %}
+	<!-- note: bootstrap css is at bottom because internet is very bad where I'm developing this. TBM to the top later. -->
+	<link rel = 'stylesheet' href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'v>
+  <!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
