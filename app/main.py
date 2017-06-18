@@ -248,19 +248,22 @@ def generate():
     else: 
         print('There\s already a book there.')
 
-
-generate()
-os.system(f'pdflatex -output-directory app/Book app/Book/Book.tex')
-
 @app.route('/')
 def go():
+
     return render_template('layout.html') 
 
 @app.route('/download')
 def download():
+
+    generate()
+    os.system(f'pdflatex -output-directory app/Book app/Book/Book.tex')
+
    
 
     return send_file('Book/Book.pdf',
             as_attachment = True)
+
+
 
 
