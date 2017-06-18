@@ -2,7 +2,9 @@
 <head>
 <style>
 #coolfont {
-  font-family: 'Baloo Bhaina', cursive;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+	color: #EEF1F5;
+	text-decoration: none;
 }
 body {
 	padding-top: 65px;
@@ -12,8 +14,11 @@ body {
 	font-family: 'Berkshire Swash', cursive;
 }
 	</style>
-	<nav  class = 
-		'navbar navbar-default navbar-fixed-top'><h2 id = 'coolfont' >Randomized Fantasy World</h2>
+	<nav class = 
+		'navbar navbar-inverse navbar-fixed-top'>
+		<a id = 'coolfont'href = 'https://github.com/thatguysilver'>
+			<h1  >My github</h1>
+		</a>
 	</nav>
 
 </head>
@@ -22,15 +27,14 @@ body {
 		<div class = 'container-fluid' id = 'test'>
 			<a href = 'generated' download>
 				<button type = 'button' 
-					class = 'btn btn-danger'>Download .pdf</button>
+					class = 'btn btn-danger'>Download .pdf file</button>
 		</div>
 	</div>
 
 	{% block test %}{% endblock %}
 	<!-- note: bootstrap css is at bottom because internet is very bad where I'm developing this. TBM to the top later. -->
-	<link rel = 'stylesheet' href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'v>
-	<link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet"> 
-	<link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina" rel="stylesheet"> 
+	<link rel = 'stylesheet' href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+	<link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Yanone+Kaffeesatz" rel="stylesheet"> 
 
   <!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
