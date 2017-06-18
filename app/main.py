@@ -3,6 +3,8 @@ from random import * #apparently this format is bad. Whoops.
 from sys import argv #necessary for writing to file
 from randomizer import name_creator
 import os
+from flask import render_template, Flask, send_file
+from app import app
 
 class Intro():
     '''generates the Intro text'''
@@ -240,11 +242,20 @@ def generate():
 
     else: 
         print('There\s already a book there.')
+@app.route('/')
+def test():
+    a = "test text"
+    return render_template('layout.html', a = a)
 
+@app.route('/test')
+def download():
+    return send_file('test.txt',
+            as_attachment = True)
 
 if __name__ == '__main__':
     generate()
     os.system(f'pdflatex -output-directory {desired_directory}/Book {desired_directory}/Book/Book.tex')
+
 
 
 
