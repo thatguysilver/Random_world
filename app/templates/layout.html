@@ -1,17 +1,33 @@
 <!Doctype html>
 <head>
-	<div class = 'jumbotron'>
+<style>
+#test {
+	font-family: 'Raleway', sans-serif;
+}
+	</style>
+	<nav class = 'navbar navbar-default'>
 		<div class = 'container-fluid'>
+			<div class = 'navbar-header'>
+				<a href = 'https://github.com/thatguysilver/Random_world'>
+					<h1>Random Fantasy World Generator</h1>
+				</a>
+			</div>
+		</div>
+	</nav>
+	<div class = 'jumbotron'>
+		<div class = 'container-fluid' id = 'test'>
 			<a href = 'generated' download>
-				<button type = 'button' class = 'btn btn-danger'>Click me!</h1></button>
+				<button type = 'button' style = 'font-size: 200%' class = 'btn btn-danger'>Download .pdf</h1></button>
 		</div>
 	</div>
 </head>
 <body>
+	<h1 id = 'test'>Testing</h1>
 
 	{% block test %}{% endblock %}
 	<!-- note: bootstrap css is at bottom because internet is very bad where I'm developing this. TBM to the top later. -->
 	<link rel = 'stylesheet' href = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'v>
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet"> 
   <!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
