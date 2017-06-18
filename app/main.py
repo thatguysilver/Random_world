@@ -209,17 +209,22 @@ Name: {0} \\\\Symmetry: {1} \\\\Number of Limbs: {2}
         )
     return text
 
-desired_directory = '' #for whatever reason, I have to call pdflatex
-                       #outside of the generate() function. This will
-                       #have to do for now.
+
                        
 def generate():
-    global desired_directory 
+    path = os.path.dirname(os.path.realpath(__file__))
+ 
 
-    desired_directory = input('Where do you want to create your world?')
-    if 'Book' not in os.listdir(desired_directory):
-        os.system(f'mkdir {desired_directory}/Book')
-        doc = open(f'{desired_directory}/Book/Book.tex', 'w+')
+
+    if 'Book' in path:
+        os.system('rm -r Book')
+    else:
+        pass
+    
+    if 'Book' not in path:
+
+        os.system(f'mkdir app/Book')
+        doc = open('app/Book/Book.tex', 'w+')
         doc.write(r'''
 \documentclass{article}
           
@@ -242,20 +247,20 @@ def generate():
 
     else: 
         print('There\s already a book there.')
+
+
+generate()
+os.system(f'pdflatex -output-directory app/Book app/Book/Book.tex')
+
 @app.route('/')
-def test():
-    a = "test text"
-    return render_template('layout.html', a = a)
+def go():
+    return render_template('layout.html') 
 
-@app.route('/test')
+@app.route('/download')
 def download():
-    return send_file('test.txt',
+   
+
+    return send_file('Book/Book.pdf',
             as_attachment = True)
-
-if __name__ == '__main__':
-    generate()
-    os.system(f'pdflatex -output-directory {desired_directory}/Book {desired_directory}/Book/Book.tex')
-
-
 
 
