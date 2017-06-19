@@ -5,6 +5,18 @@ from randomizer import name_creator
 import os
 from flask import render_template, Flask, send_file
 from app import app
+import sqlite3
+
+
+sqlite_file = 'world.sqlite'
+conn = sqlite3.connect(sqlite_file)
+c = conn.cursor()
+
+
+conn.close()
+
+
+
 
 class Intro():
     '''generates the Intro text'''
@@ -242,10 +254,6 @@ def generate():
             
         ))
         
-        
-    
-
-
 @app.route('/')
 def go():
     global i, c, m
@@ -275,9 +283,3 @@ def generated_page():
 
     return render_template('generated.html', name = i.name)
     
-
-
-
-    
-
-
