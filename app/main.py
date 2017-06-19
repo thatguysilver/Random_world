@@ -143,9 +143,9 @@ class Creature:
             self.domesticated = "Not possible"
             return self.domesticated
 
-i = Intro()       #
-m = MagicSystem() #  
-c = Creature()    #
+#i = None #Intro()       #
+#m = None #MagicSystem() #  
+#c = None #Creature()    #
 
 def intro_text():
     '''Creates intro part of LaTeX document'''
@@ -221,11 +221,11 @@ def generate():
     else:
         pass
     
-    if 'Book' not in path:
 
-        os.system(f'mkdir app/Book')
-        doc = open('app/Book/Book.tex', 'w+')
-        doc.write(r'''
+    os.system(f'mkdir app/Book')
+    doc = open('app/Book/Book.tex', 'w+')
+    doc.write(r'''
+
 \documentclass{article}
           
 \begin{document}''' + '''
@@ -245,20 +245,23 @@ def generate():
         
     
 
-    else: 
-        print('There\s already a book there.')
 
 @app.route('/')
 def go():
+    global i, c, m
+    i = Intro()
+    m = MagicSystem()
+    c = Creature()
+    name = i.name
 
-    return render_template('layout.html') 
+    return render_template('layout.html', name = name) 
 
 @app.route('/generated')
 def download():
     global i, c, m
-    i = Intro()
-    c = Creature()
-    m = MagicSystem()
+    #i = Intro()
+    #c = Creature()
+    #m = MagicSystem()
 
     generate()
     os.system(f'pdflatex -output-directory app/Book app/Book/Book.tex')
@@ -266,6 +269,15 @@ def download():
     return send_file('Book/Book.pdf',
             as_attachment = True)
 
+@app.route('/generated')
+def generated_page():
+    global i, c, m
 
+    return render_template('generated.html', name = i.name)
+    
+
+
+
+    
 
 

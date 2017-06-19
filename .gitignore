@@ -1,4 +1,4 @@
-.pyc
+*.pyc
 *.pdf
 *.log
 *.aux
@@ -9,3 +9,4 @@ os
 *swp
 *swo
 d.py
+Procfile

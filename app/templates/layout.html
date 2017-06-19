@@ -27,7 +27,7 @@ body {
 <body>
 	<div style = 'padding-top: 15px;' class = 'container-fluid'>
 		<div style = 'padding-left: 10px' class = 'row' id = 'test'>
-			<a href = 'generated' download>
+			<a href = '/generated' download>
 				<button type = 'button' 
 					class = 'btn btn-danger'>Download .pdf file</button>
 			</a>
@@ -37,6 +37,8 @@ body {
 	This is a random fantasy world generator. It's in its very early stages;
 	for now, all it does is generate some stats about the world, a blurb
  about the magic system and a list of eight magical creatures.</p>
+
+	<h1>{{ name }}</h1>
 
 	{% block test %}{% endblock %}
 	<!-- note: bootstrap css is at bottom because internet is very bad where I'm developing this. TBM to the top later. -->
