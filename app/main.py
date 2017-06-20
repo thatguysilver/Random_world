@@ -38,6 +38,19 @@ class MagicSystem:
 class Creature:
     '''Everything that breathes is one of these.'''
 
+    def __init__(self):
+        self.name = self.name()
+        self.symmetry = self.symmetry()
+        self.number_of_limbs = self.number_of_limbs(self.symmetry)
+        self.mass = self.mass()
+        self.intelligence = self.intelligence(self.symmetry)
+        self.sentience = self.sentience(self.intelligence)
+        self.temperament = self.temperament(self.inum)
+        self.domesticated = self.domesticated(self.sentience, self.temperament)
+
+
+
+    
     def name(self):
         self.name = name_creator()
         return self.name
@@ -145,9 +158,11 @@ class Creature:
             self.domesticated = "Not possible"
             return self.domesticated
 
-#i = None #Intro()       #
-#m = None #MagicSystem() #  
-#c = None #Creature()    #
+    
+
+i = Intro()       #
+m = MagicSystem() #  
+c = Creature()    #
 
 def intro_text():
     '''Creates intro part of LaTeX document'''
@@ -200,15 +215,15 @@ Name: {0} \\\\Symmetry: {1} \\\\Number of Limbs: {2}
 '''
 
         .format(
-        c.name(),                                   #0
-        c.symmetry(),                               #1
-        c.number_of_limbs(c.symmetry),              #2
-        c.intelligence(c.symmetry),                 #3
-        c.sentience(c.inum),                        #4
-        c.mass(),                                   #5
-        c.temperament(c.inum),                      #6
-        c.domesticated(c.sentience, c.temperament)) #7
-        )
+        c.name,                                   #0
+        c.symmetry,                               #1
+        c.number_of_limbs,              #2
+        c.intelligence,                 #3
+        c.sentience,                        #4
+        c.mass,                                   #5
+        c.temperament,                      #6
+        c.domesticated #7
+        ))
     return text
 
 
@@ -248,9 +263,9 @@ def generate():
 def go():
     
     global i, c, m
-    i = Intro()
-    m = MagicSystem()
-    c = Creature()
+    #i = Intro()
+    #m = MagicSystem()
+    #c = Creature()
     name = i.name
 
     return render_template('layout.html', ) 
