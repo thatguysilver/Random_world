@@ -10,7 +10,7 @@ import sqlite3
 sqlite_file = 'world.sqlite'
 conn = sqlite3.connect(sqlite_file)
 
-class Intro():
+class Intro:
     '''generates the Intro text'''
     def __init__(self):
         self.name = name_creator()
@@ -265,9 +265,17 @@ def download():
 
     generate()    
 
+#Below: for testing.
+    '''
     c = conn.cursor()
+    table_name = 'PLACEHOLDER'
+    testcolumn = i.name
+
+    
 
     conn.close()
+    '''
+#above: for testing.
 
     os.system(f'pdflatex -output-directory app/Book app/Book/Book.tex')
     
