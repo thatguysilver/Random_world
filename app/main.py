@@ -7,8 +7,6 @@ from flask import render_template, Flask, send_file
 from app import app
 import sqlite3
 
-sqlite_file = 'world.sqlite'
-conn = sqlite3.connect(sqlite_file)
 
 class Intro:
     '''generates the Intro text'''
@@ -248,34 +246,25 @@ def generate():
         
 @app.route('/')
 def go():
+    
     global i, c, m
     i = Intro()
     m = MagicSystem()
     c = Creature()
     name = i.name
 
-    return render_template('layout.html', name = name) 
+    return render_template('layout.html', ) 
 
 @app.route('/generated')
 def download():
+    
     global i, c, m
-    #i = Intro()
-    #c = Creature()
-    #m = MagicSystem()
+    i = Intro()
+    c = Creature()
+    m = MagicSystem()
 
     generate()    
 
-#Below: for testing.
-    '''
-    c = conn.cursor()
-    table_name = 'PLACEHOLDER'
-    testcolumn = i.name
-
-    
-
-    conn.close()
-    '''
-#above: for testing.
 
     os.system(f'pdflatex -output-directory app/Book app/Book/Book.tex')
     
